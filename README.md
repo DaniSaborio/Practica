@@ -1,61 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Mini-inventario Laravel - ITI-621
 
-## About Laravel
+## Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Proyecto web desarrollado en Laravel para gestionar productos de una tienda. Permite listar, agregar y marcar productos como adquiridos, siguiendo requisitos académicos y técnicos para ITI-621 Tecnologías y Sistemas Web III.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tabla de Contenidos
 
-## Learning Laravel
+- [Descripción](#descripción)
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Configuración](#configuración)
+- [Uso](#uso)
+- [Créditos y licencia](#créditos-y-licencia)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tecnologías utilizadas
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Arch Linux
+- Apache 2.4
+- MariaDB/MySQL
+- PHP >= 8.4
+- Laravel 12.x
+- Composer 2.x
+- Node.js y npm (opcional para frontend)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Requisitos
 
-### Premium Partners
+- Sistema Arch Linux actualizado
+- Apache y MariaDB/MySQL instalados
+- PHP y Composer instalados
+- Acceso de administrador a la base de datos
+- Node.js y npm (solo si usarás frontend avanzado)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Instalación
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clona el repositorio:**
+   ```
+   git clone https://github.com/DaniSaborio/Practica.git
+   cd Practica
+   ```
 
-## Code of Conduct
+2. **Instala dependencias PHP con Composer:**
+   ```
+   composer install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. **Prepara tu entorno:**
+   ```
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+4. **Edita `.env` con los datos de tu base:**
+   ```
+   DB_DATABASE=tienda
+   DB_USERNAME=sabo
+   DB_PASSWORD=tu_contraseña
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. **Crea la base de datos y el usuario (en MariaDB/MySQL):**
+   ```
+   CREATE DATABASE tienda CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   GRANT ALL PRIVILEGES ON tienda.* TO 'sabo'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
 
-## License
+6. **Ejecuta las migraciones:**
+   ```
+   php artisan migrate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. **Inicia el servidor para desarrollo:**
+   ```
+   php artisan serve
+   ```
+
+---
+
+## Configuración adicional
+
+- Verifica los permisos sobre `/srv/http` o el directorio de tu proyecto si usas Apache.
+- Si usas el driver de sesiones en base de datos, ejecuta:
+  ```
+  php artisan session:table
+  php artisan migrate
+  ```
+
+---
+
+## Uso
+
+Accede desde el navegador a [http://localhost:8000](http://localhost:8000). Desde la pantalla principal puedes listar productos, agregarlos y marcarlos como adquiridos.
+
+---
+
+## Créditos y licencia
+
+MIT License.
+
+Proyecto realizado por Daniel Saborio para ITI-621 Tecnologías y Sistemas Web III.
+
+---
+
+## Evidencias
+
+Incluye capturas de pantalla sobre:
+- Instalación y migración exitosa
+- Acceso y funcionamiento del sistema
+- Ejecución del servidor con `php artisan serve`
+
+---
+
+## Contacto
+
+Para dudas sobre la práctica:
+- Email académico de Daniel Saborio
+- [GitHub: DaniSaborio](https://github.com/DaniSaborio/)
+
+---
+
+```

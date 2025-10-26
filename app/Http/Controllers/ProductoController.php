@@ -19,7 +19,7 @@ class ProductoController extends Controller
             'nombre' => 'required|string|max:120',
             'precio' => 'required|numeric|min:0.01'
         ]);
-
+// This function permit the creation of the products
         Producto::create([
             'nombre' => $request->nombre,
             'precio' => $request->precio
@@ -27,7 +27,7 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index');
     }
-
+// In this case "Toggle" alter the state of acquire
     public function toggle($id)
     {
         $producto = Producto::findOrFail($id);
