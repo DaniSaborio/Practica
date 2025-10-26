@@ -118,13 +118,6 @@ Incluye capturas de pantalla sobre:
 - Acceso y funcionamiento del sistema
 - Ejecución del servidor con `php artisan serve`
 
----
-
-## Contacto
-
-Para dudas sobre la práctica:
-- Email académico de Daniel Saborio
-- [GitHub: DaniSaborio](https://github.com/DaniSaborio/)
 
 ---
 
