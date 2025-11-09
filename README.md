@@ -111,14 +111,3 @@ Proyecto realizado por Daniel Saborio para ITI-621 Tecnologías y Sistemas Web I
 
 ---
 
-## Evidencias
-
-Incluye capturas de pantalla sobre:
-- Instalación y migración exitosa
-- Acceso y funcionamiento del sistema
-- Ejecución del servidor con `php artisan serve`
-
-
----
-
-```
